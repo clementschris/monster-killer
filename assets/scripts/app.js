@@ -34,15 +34,43 @@ function writeToLog(ev, val, monsterHealth, playerHealth) {
         finalMonsterHealth: monsterHealth,
         finalPlayerHealth: playerHealth,
     };
-    if (ev === LOG_EVENT_PLAYER_ATTACK) {
-        logEntry.target = 'MONSTER';
-    } else if (ev === LOG_EVENT_PLAYER_STRONG_ATTACK) {
-        logEntry.target = 'MONSTER';
-    } else if (ev === LOG_EVENT_MOSTER_ATTACK) {
-        logEntry.target = 'PLAYER';
-    } else if (ev === LOG_EVENT_PLAYER_HEAL) {
-        logEntry.target = 'PLAYER';
+
+    switch (ev) {
+        case LOG_EVENT_PLAYER_ATTACK:
+            logEntry.target = 'MONSTER';
+            break;
+        // this is telling you that if the first
+        // switch case statement HAS BEEN MET
+        // then the code should STOP here
+        case LOG_EVENT_PLAYER_STRONG_ATTACK:
+            logEntry.target = 'MONSTER';
+            break;
+        case LOG_EVENT_MOSTER_ATTACK:
+            logEntry.target = 'PLAYER';
+            break;
+        case LOG_EVENT_PLAYER_HEAL:
+            logEntry.target = 'PLAYER';
+            break;
+        case LOG_EVENT_GAME_OVER:
+            logEntry;
+            break;
+        default:
+            logEntry = {};
     }
+
+    // is another way of writing my if and else
+    // statements but with switch and case statements!
+    // code below will execute the same as code above
+
+    // if (ev === LOG_EVENT_PLAYER_ATTACK) {
+    //     logEntry.target = 'MONSTER';
+    // } else if (ev === LOG_EVENT_PLAYER_STRONG_ATTACK) {
+    //     logEntry.target = 'MONSTER';
+    // } else if (ev === LOG_EVENT_MOSTER_ATTACK) {
+    //     logEntry.target = 'PLAYER';
+    // } else if (ev === LOG_EVENT_PLAYER_HEAL) {
+    //     logEntry.target = 'PLAYER';
+    // }
     battleLog.push(logEntry);
 }
 
