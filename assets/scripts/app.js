@@ -58,7 +58,7 @@ function writeToLog(ev, val, monsterHealth, playerHealth) {
             logEntry = {};
     }
 
-    // is another way of writing my if and else
+    // above is another way of writing my if and else
     // statements but with switch and case statements!
     // code below will execute the same as code above
 
