@@ -15,6 +15,7 @@ const enteredValue = prompt('Please enter your maximum health points', '100');
 
 let chosenMaxLife = parseInt(enteredValue);
 let battleLog = [];
+let lastLoggedEntry;
 
 if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
     alert('You did not enter a recognised value. Health will start at 100.');
@@ -188,14 +189,23 @@ function printLogHandler() {
     for (let i = 0; i < 3; i++) {
         console.log('------------');
     }
+    let j = 3;
+    do {
+        console.log(j);
+        j++;
+    } while (j < 3);
     // for (let i = 0; i < battleLog.length; i++) {
     //     console.log(battleLog[i]);
     // }
     let i = 0;
     for (const logEntry of battleLog) {
-        console.log(`#${i}`);
-        for (const key in logEntry) {
-            console.log(`{key}) => ${logEntry[key]}`);
+        if (!lastLoggedEntry && lastLoggedEntry !== 0 || lastLoggedEntry < i) {
+            console.log(`#${i}`);
+            for (const key in logEntry) {
+                console.log(`{key}) => ${logEntry[key]}`);
+            }
+            lastLoggedEntry = i;
+            break;
         }
         i++;
     }
