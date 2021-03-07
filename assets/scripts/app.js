@@ -17,6 +17,16 @@ let chosenMaxLife = parseInt(enteredValue);
 let battleLog = [];
 let lastLoggedEntry;
 
+function getMaxLifeValues() {
+    const enteredValue = prompt('Maximum life for you and the Monster.', '100');
+
+    const parsedValue = parseInt(enteredValue);
+    if (isNaN(parsedValue) || parsedValue <= 0) {
+        throw { message: 'Invalid user input, not a number!'};
+    }
+    return parsedValue;
+}
+
 if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
     alert('You did not enter a recognised value. Health will start at 100.');
     chosenMaxLife = 100;
