@@ -24,11 +24,16 @@ function getMaxLifeValues() {
     return parsedValue;
 }
 
-try {
-    
-}
+let chosenMaxLife;
 
-let chosenMaxLife = getMaxLifeValues();
+try {
+    chosenMaxLife = getMaxLifeValues();
+} catch (error) {
+    console.log(error);
+    chosenMaxLife = 100;
+    alert('Invalid user input, not a number. Life will begin at 100 health points.');
+    // throw error;
+}
 
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
